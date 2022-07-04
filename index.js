@@ -4,7 +4,7 @@ const _ = require('lodash');
 const async = require('async');
 const linkCheck = require('link-check');
 const LinkCheckResult = require('link-check').LinkCheckResult;
-const markdownLinkExtractor = require('markdown-link-extractor');
+const markdownLinkExtractor = require('autoantwort-markdown-link-extractor');
 const ProgressBar = require('progress');
 
 const envVarPatternMatcher = /(?<pattern>{{env\.(?<name>[a-zA-Z0-9\-_]+)}})/;

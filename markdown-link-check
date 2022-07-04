@@ -4,7 +4,7 @@
 
 const chalk = require('chalk');
 const fs = require('fs');
-const markdownLinkCheck = require('./');
+const markdownLinkCheck = require('.');
 const needle = require('needle');
 const path = require('path');
 const pkg = require('./package.json');
@@ -187,13 +187,13 @@ async function runMarkdownLinkCheck(markdown, opts) {
 
                 if (opts.verbose) {
                     if (result.err) {
-                        console.log('  [%s] %s → Status: %s %s', statusLabels[result.status], result.link, result.statusCode, result.err);
+                        console.log('  [%s] %s → Status: %s %s', statusLabels[result.status], decodeURIComponent(result.link), result.statusCode, result.err);
                     } else {
-                        console.log('  [%s] %s → Status: %s', statusLabels[result.status], result.link, result.statusCode);
+                        console.log('  [%s] %s → Status: %s', statusLabels[result.status], decodeURIComponent(result.link), result.statusCode);
                     }
                 }
                 else {
-                    console.log('  [%s] %s', statusLabels[result.status], result.link);
+                    console.log('  [%s] %s', statusLabels[result.status], decodeURIComponent(result.link));
                 }
             });
             console.log('\n  %s links checked.', results.length);
@@ -201,7 +201,7 @@ async function runMarkdownLinkCheck(markdown, opts) {
                 let deadLinks = results.filter(result => { return result.status === 'dead'; });
                 console.error(chalk.red('\n  ERROR: %s dead links found!'), deadLinks.length);
                 deadLinks.forEach(function (result) {
-                    console.log('  [%s] %s → Status: %s', statusLabels[result.status], result.link, result.statusCode);
+                    console.log('  [%s] %s → Status: %s', statusLabels[result.status], decodeURIComponent(result.link), result.statusCode);
                 });
                 reject();
             }

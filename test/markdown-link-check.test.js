@@ -348,6 +348,8 @@ describe('markdown-link-check', function () {
                 { link: '#bar', statusCode: 200, err: null, status: 'alive' },
                 { link: '#potato', statusCode: 404, err: null, status: 'dead' },
                 { link: '#tomato', statusCode: 404, err: null, status: 'dead' },
+                { link: '#%C3%BCbersicht', statusCode: 200, err: null, status: 'alive' },
+                { link: '#gitlab-good', statusCode: 200, err: null, status: 'alive' },
             ]);
             done();
         });

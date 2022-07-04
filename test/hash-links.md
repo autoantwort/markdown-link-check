@@ -19,3 +19,11 @@ The second section is [Bar](#bar).
 There is no section named [Potato](#potato).
 
 There is an anchor named [Tomato](#tomato).
+
+## Übersicht
+
+There is a german anchor [Übersicht](#übersicht).
+
+## Gitlab - Good
+
+There is a gitlab style anchor [Gitlab](#gitlab-good).
